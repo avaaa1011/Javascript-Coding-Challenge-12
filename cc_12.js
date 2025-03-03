@@ -13,3 +13,15 @@ const metricCards = document.querySelectorAll(".metric-card"); //selects all the
 const metricCardsArray = [...metricCards]; //converts NodeList into an array
 metricCardsArray.forEach(card => {card.innerText += " - Updated"; card.style.backgroundColor = `pink`;}) 
 //an array method that updates the card's text and color
+
+//task 3: dynamic inventory management - adding and removing items
+const inventoryList = document.getElementById("inventoryList");
+function addInventoryItem(productName)
+{
+    const newItem = document.createElement("li");
+    newItem.setAttribute("class", "product-item"); //adding a class 
+    newItem.innerHTML = `${productName}`; //appending a new product to the inventory list 
+    inventoryList.appendChild(newItem);
+    newItem.addEventListener("click", (event) => {inventoryList.removeChild(newItem);}); 
+}//when clicked this function will remove a speciifc <li> 
+
